@@ -23,18 +23,26 @@
             let len = results.rows.length;
             if(!len){
                 tx.executeSql('INSERT INTO DEALERS (name, ydlid, job, shift) VALUES ("VIRTUAL SP. A", "YDL-00000", "'+dealersTitle[0]+'","A")');
-                tx.executeSql('INSERT INTO DEALERS (name, ydlid, job, shift) VALUES ("VIRTUAL SP. B", "YDL-00000", "'+dealersTitle[0]+'","B")');
+                tx.executeSql('INSERT INTO DEALERS (name, ydlid, job, shift) VALUES ("VIRTUAL SP. B", "YDL-00000", "'+dealersTitle[0]+'","B")',[],(tx)=>{
+                    console.log("aaa");
+                    firstRead(tx);
+                });
+            } else {
+                console.log("bbb");
+                firstRead(tx);
             }
             console.log(len);
         }, null);
 
-        tx.executeSql('SELECT * FROM DEALERS', [], (tx, results)=>{
-            let len = results.rows.length, i;
-            for (i = 0; i < len; i++){
-                console.log(results.rows.item(i));
-                dealersInfo.push(results.rows.item(i));
-            }
-        }, null);
+        let firstRead = (tx)=>{
+            tx.executeSql('SELECT * FROM DEALERS', [], (tx, results)=>{
+                let len = results.rows.length, i;
+                for (i = 0; i < len; i++){
+                    console.log(results.rows.item(i));
+                    dealersInfo.push(results.rows.item(i));
+                }
+            }, null);
+        };
     });
 
     export default

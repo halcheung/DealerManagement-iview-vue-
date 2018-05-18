@@ -66,9 +66,9 @@
                     tx.executeSql('CREATE TABLE IF NOT EXISTS WORKINGTABLE (id integer primary key autoincrement, name, ydlid, month, shift, schedule)',[],(tx)=>{
                         this.fetchDate();
                     });
-                    tx.executeSql('SELECT * FROM WROKINGTABLE',[],(tx,result)=>{
-                        console.log(result.rows.length);
-                    });
+                    // tx.executeSql('SELECT * FROM WROKINGTABLE',[],(tx,result)=>{
+                    //     console.log(result.rows.length);
+                    // });
                 });
 
             });

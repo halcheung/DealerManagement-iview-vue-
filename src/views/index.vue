@@ -24,14 +24,14 @@
                         <Icon type="android-calendar"></Icon>
                         Working Tables
                     </template>
-                    <MenuItem v-for="m in months" :name="'wt-'+m">{{m}}</MenuItem>
+                    <MenuItem v-for="m in months" :name="'wt-'+m" :key="m">{{m}}</MenuItem>
                 </Submenu>
                 <Submenu name="2">
                     <template slot="title">
                         <Icon type="close-circled"></Icon>
                         Mistakes
                     </template>
-                    <MenuItem v-for="m in months2" :name="'mtk-'+m">{{m}}</MenuItem>
+                    <MenuItem v-for="m in months2" :name="'mtk-'+m" :key="m">{{m}}</MenuItem>
                     <MenuItem name="mtk-Definition">Definition</MenuItem>
                 </Submenu>
                 <Submenu name="3">

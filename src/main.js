@@ -15,7 +15,7 @@ Vue.prototype._G = global_;//挂载到Vue实例上面
 
 // 路由配置
 const RouterConfig = {
-    mode: 'history',
+    // mode: 'history',
     routes: Routers
 };
 const router = new VueRouter(RouterConfig);

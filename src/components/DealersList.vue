@@ -214,7 +214,16 @@
         },
         mounted(){
             this.$nextTick(()=>{
-                this.rendDealers();
+
+                let init = ()=>{
+                    if(this._G.dealersInfo.length){
+                        this.rendDealers();
+                    } else {
+                        setTimeout(init, 1000);
+                    }
+                };
+                init();
+
             });
         },
         methods:{
@@ -223,10 +232,6 @@
                 this.showLoading = true;
                 this.dealersA.length = 0;
                 this.dealersB.length = 0;
-
-                while(true){
-                    if(this._G.dealersInfo.length) break;
-                }
 
                 console.log(this._G.dealersInfo);
 
